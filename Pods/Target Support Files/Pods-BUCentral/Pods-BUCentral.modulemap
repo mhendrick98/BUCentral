@@ -1,0 +1,6 @@
+framework module Pods_BUCentral {
+  umbrella header "Pods-BUCentral-umbrella.h"
+
+  export *
+  module * { export * }
+}
