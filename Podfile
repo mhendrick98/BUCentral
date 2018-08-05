@@ -8,6 +8,7 @@ target 'BUCentral' do
   # Pods for BUCentral
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 
 
 end
