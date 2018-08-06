@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		533F283D2117EADB00B35177 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F283C2117EADB00B35177 /* HomePageViewController.swift */; };
+		533F283F2117F8CA00B35177 /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F283E2117F8CA00B35177 /* WriteReviewViewController.swift */; };
+		533F28412117F8D800B35177 /* SearchReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F28402117F8D800B35177 /* SearchReviewViewController.swift */; };
 		53528A5320FAA6210091D1DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53528A5220FAA6210091D1DB /* AppDelegate.swift */; };
 		53528A5520FAA6210091D1DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53528A5420FAA6210091D1DB /* ViewController.swift */; };
 		53528A5820FAA6210091D1DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53528A5620FAA6210091D1DB /* Main.storyboard */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		533F283C2117EADB00B35177 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePageViewController.swift; path = /Users/MichaelHendrick/Desktop/BUCentral/BUCentral/HomePageViewController.swift; sourceTree = "<absolute>"; };
+		533F283E2117F8CA00B35177 /* WriteReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
+		533F28402117F8D800B35177 /* SearchReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchReviewViewController.swift; sourceTree = "<group>"; };
 		53528A4F20FAA6210091D1DB /* BUCentral.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BUCentral.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53528A5220FAA6210091D1DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53528A5420FAA6210091D1DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +71,9 @@
 			children = (
 				53528A5220FAA6210091D1DB /* AppDelegate.swift */,
 				53528A5420FAA6210091D1DB /* ViewController.swift */,
+				533F283C2117EADB00B35177 /* HomePageViewController.swift */,
+				533F283E2117F8CA00B35177 /* WriteReviewViewController.swift */,
+				533F28402117F8D800B35177 /* SearchReviewViewController.swift */,
 				53528A5620FAA6210091D1DB /* Main.storyboard */,
 				53528A5920FAA6240091D1DB /* Assets.xcassets */,
 				53528A5B20FAA6240091D1DB /* LaunchScreen.storyboard */,
@@ -168,15 +177,27 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BUCentral/Pods-BUCentral-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -210,8 +231,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				533F28412117F8D800B35177 /* SearchReviewViewController.swift in Sources */,
 				53528A5520FAA6210091D1DB /* ViewController.swift in Sources */,
 				53528A5320FAA6210091D1DB /* AppDelegate.swift in Sources */,
+				533F283F2117F8CA00B35177 /* WriteReviewViewController.swift in Sources */,
+				533F283D2117EADB00B35177 /* HomePageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

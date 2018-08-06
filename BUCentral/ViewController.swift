@@ -9,10 +9,14 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseFirestore
 
 
 class ViewController: UIViewController {
-    var dataRef: DatabaseReference!
+    let db = Firestore.firestore()
+    var ref: DocumentReference? = nil
+
+    
     func randomString(length: Int) -> String {
         
         let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -34,7 +38,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataRef = Database.database().reference()
+        //dataRef = Database.database().reference()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -46,10 +50,20 @@ class ViewController: UIViewController {
     @IBAction func signUp(_ sender: Any) {
         Auth.auth().createUser(withEmail: self.usernameInput.text!, password: self.passwordInput.text!, completion: { (user, error) in
             if user != nil{
-                self.dataRef.child("users").setValue(["username": self.usernameInput.text!])
+                //self.dataRef.child("users").setValue(["username": self.usernameInput.text!])
                 //self.dataRef.child("users").setValue(["id": self.randomString(length: 20)])
-                let x = self.dataRef.queryOrdered(byChild: "users").queryEqual(toValue: self.usernameInput.text!)
-                print(x)
+                //let x = self.dataRef.queryOrdered(byChild: "users").queryEqual(toValue: self.usernameInput.text!)
+                //print(x)
+                self.ref = self.db.collection("users").addDocument(data: [
+                    "email": self.usernameInput.text!,
+                    "password": self.passwordInput.text!
+                ]) { err in
+                    if let err = err {
+                        print("Error adding document: \(err)")
+                    } else {
+                        print("Document added with ID: \(self.ref!.documentID)")
+                    }
+                }
                 print("User has signed up!")
             }
             if error != nil{
@@ -68,6 +82,16 @@ class ViewController: UIViewController {
                 print(":(")
             }
         })
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is HomePageViewController
+        {
+            let vc = segue.destination as? HomePageViewController
+            vc?.username = self.usernameInput.text!
+            
+        }
     }
 }
 
