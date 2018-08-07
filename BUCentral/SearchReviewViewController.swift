@@ -14,23 +14,34 @@ class SearchReviewViewController: UIViewController {
 
     let db = Firestore.firestore()
     var username: String = ""
+    var className: [String] = []
+    var professorName: [String] = []
+    var classComments: [String] = []
+    var finalScore: [String] = []
     
-    @IBOutlet weak var tempInfo: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let usersRef = db.collection("reviews")
-        let query = usersRef.whereField("className", isEqualTo: "test").getDocuments(completion: {(querySnapshot, err) in
+    @IBOutlet weak var classQuery: UITextField!
+    
+    func queryResults(){
+        let reviewRef = db.collection("reviews")
+        let query = reviewRef.whereField("className", isEqualTo: classQuery.text ?? "None").getDocuments(completion: {(querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
                     let temp = "\(document.documentID) => \(document.data()["className"] ?? "None") => \(document.data()["profName"] ?? "None") => \(document.data()["classComments"] ?? "None") => \(document.data()["finalScore"] ?? "None")"
                     print(temp)
-                    self.tempInfo?.text = self.tempInfo!.text! + "***** NEW CLASS *****" + temp
+                    self.className.append("\(document.data()["className"] ?? "Not Given")")
+                    self.professorName.append("\(document.data()["profName"] ?? "Not Given")")
+                    self.classComments.append("\(document.data()["classComments"] ?? "Not Given")")
+                    self.finalScore.append("\(document.data()["finalScore"] ?? "Not Given")")
                 }
             }
         })
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
@@ -46,6 +57,19 @@ class SearchReviewViewController: UIViewController {
             let vc = segue.destination as? HomePageViewController
             vc?.username = self.username
             
+        }
+        if segue.destination is SearchResultsViewController
+        {
+            print(self.classComments)
+            print(self.classComments)
+            let vc = segue.destination as? SearchResultsViewController
+            print(self.classComments)
+            vc?.username = self.username
+            vc?.className = self.className
+            vc?.professorName = self.professorName
+            vc?.classComments = self.classComments
+            vc?.finalScore = self.finalScore
+        
         }
     }
     
