@@ -38,8 +38,7 @@ class SearchResultsViewController: UIViewController, UICollectionViewDataSource,
         
         cell.professorName.text = "Professor Name: " + professorName[indexPath.row]
         cell.classComments.text = "General Comments: " + classComments[indexPath.row]
-        cell.finalScore.text = "Final Score: " + finalScore[indexPath.row]
-        
+        cell.finalScore.text = "Score: " + finalScore[indexPath.row] + "/5"
         cell.contentView.layer.cornerRadius = 4.0
         cell.contentView.layer.borderWidth = 1.0
         cell.contentView.layer.borderColor = UIColor.clear.cgColor

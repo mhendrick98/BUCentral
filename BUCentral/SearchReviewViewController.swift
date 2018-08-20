@@ -35,7 +35,9 @@ class SearchReviewViewController: UIViewController {
                     self.professorName.append("\(document.data()["profName"] ?? "Not Given")")
                     self.classComments.append("\(document.data()["classComments"] ?? "Not Given")")
                     self.finalScore.append("\(document.data()["finalScore"] ?? "Not Given")")
+                    
                 }
+                self.performSegue(withIdentifier: "segueToResults", sender: self)
             }
         })
     }
@@ -60,20 +62,21 @@ class SearchReviewViewController: UIViewController {
         }
         if segue.destination is SearchResultsViewController
         {
-            print(self.classComments)
-            print(self.classComments)
             let vc = segue.destination as? SearchResultsViewController
-            print(self.classComments)
             vc?.username = self.username
             vc?.className = self.className
             vc?.professorName = self.professorName
             vc?.classComments = self.classComments
             vc?.finalScore = self.finalScore
-        
         }
     }
     
 
+    @IBAction func submitButton(_ sender: Any) {
+        queryResults()
+        
+    }
+    
     /*
     // MARK: - Navigation
 

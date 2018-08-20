@@ -18,7 +18,7 @@ class WriteReviewViewController: UIViewController {
     
     @IBOutlet weak var profName: UITextField!
     
-    @IBOutlet weak var classComments: UITextField!
+    @IBOutlet weak var classComments: UITextView!
     
     @IBOutlet weak var finalScore: UISegmentedControl!
     
