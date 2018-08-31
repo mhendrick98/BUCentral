@@ -1,2 +1,4 @@
 # BUCentral
-The start of something maybe useful??
+An app built for Boston University students to review classes, professors and student run clubs.
+
+PR's are welcome!!
